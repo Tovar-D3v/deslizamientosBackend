@@ -1,0 +1,51 @@
+# .github/workflows/build-docker-image.yml
+
+name: Docker Deslizamientos App CI/CD # Nombre descriptivo para tu flujo de trabajo
+
+on:
+  push:
+    branches:
+      - main # Dispara el flujo de trabajo cuando se haga un push a la rama 'main'
+    paths:
+      # Dispara el flujo de trabajo solo si hay cambios en estos directorios/archivos
+      # Ajusta esto para que coincida con la ubicación de tu Dockerfile y código fuente
+      - "Dockerfile"
+      - "requirements.txt"
+      - "deslizamientos/**" # Monitorea cambios dentro de la carpeta 'deslizamientos'
+
+jobs:
+  build-and-push:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest # El entorno donde se ejecutará el trabajo
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2 # Paso para clonar tu repositorio
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2 # Configura Buildx para construcciones eficientes
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }} # Usa un secreto de GitHub para el usuario
+          password: ${{ secrets.DOCKER_PASSWORD }} # Usa un secreto de GitHub para la contraseña
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          # El contexto es el directorio que Docker usará para construir la imagen.
+          # En tu caso, es la raíz de tu repositorio donde está el Dockerfile.
+          context: .
+          # La ruta al Dockerfile, relativo al contexto.
+          # Si tu Dockerfile está en la raíz, es solo 'Dockerfile'.
+          file: ./Dockerfile
+          push: true # Indica que la imagen debe ser subida a Docker Hub
+          # Las etiquetas para tu imagen.
+          # Ajusta 'tovard3v/deslizamientos-app' a tu nombre de usuario de Docker Hub y el nombre de tu repo.
+          tags: tovard3v/deslizamientos-app:latest
+          # Si quieres usar una etiqueta basada en el SHA de Git o la fecha:
+          # tags: tovard3v/deslizamientos-app:${{ github.sha }}
+          # tags: tovard3v/deslizamientos-app:${{ env.DATE_TAG }}
+          # build-args: |
+          #   VERSION=${{ github.sha }} # Ejemplo de cómo pasar argumentos de construcción al Dockerfile
