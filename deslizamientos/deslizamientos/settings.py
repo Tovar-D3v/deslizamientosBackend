@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'satel',
         'USER': 'nodered',
         'PASSWORD': 'Indelp@2023',
-        'HOST': '192.168.80.84',
+        'HOST': '192.168.80.83',
         'PORT': '3306',
     },
 }
