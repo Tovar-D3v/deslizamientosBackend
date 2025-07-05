@@ -79,28 +79,28 @@ WSGI_APPLICATION = 'deslizamientos.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'mysql.connector.django',
-#         'NAME': 'satel',
-#         'USER': 'root',
-#         'PASSWORD': 'Indelp@2023',
-#         'HOST': 'mysql_satel',
-#         'PORT': '3306',
-#     },
-# }
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
         'NAME': 'satel',
         'USER': 'root',
         'PASSWORD': 'Indelp@2023',
-        'HOST': 'localhost',
+        'HOST': 'mysql_satel',
         'PORT': '3306',
     },
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'mysql.connector.django',
+#         'NAME': 'satel',
+#         'USER': 'root',
+#         'PASSWORD': 'Indelp@2023',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     },
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
