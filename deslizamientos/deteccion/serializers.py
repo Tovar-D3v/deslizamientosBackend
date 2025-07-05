@@ -4,7 +4,7 @@ from .models import Deslizamiento, DeslizamientosMonitoreados, FincasCafeterasMo
 class DeslizamientoSerializer(serializers.ModelSerializer):
     class Meta:
         model  = Deslizamiento
-        fields = ['id', 'norte', 'sur', 'este', 'oeste', 'creado']
+        fields = "__all__"
 
 
 class DeslizamientoMonitoreadoSerializer(serializers.ModelSerializer):

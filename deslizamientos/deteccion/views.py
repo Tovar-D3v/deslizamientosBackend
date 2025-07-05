@@ -3,7 +3,7 @@ from .models import Deslizamiento, DeslizamientosMonitoreados, FincasCafeterasMo
 from .serializers import DeslizamientoSerializer, DeslizamientoMonitoreadoSerializer, FincaCafeteraMonitoreadaSerializer
 
 class DeslizamientoViewSet(viewsets.ModelViewSet):
-    queryset         = Deslizamiento.objects.all().order_by('-creado')
+    queryset         = Deslizamiento.objects.all().order_by('-fecha')
     serializer_class = DeslizamientoSerializer
 
 

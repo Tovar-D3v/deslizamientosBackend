@@ -1,21 +1,11 @@
 from django.db import models
 
 class Deslizamiento(models.Model):
-    norte  = models.FloatField()
-    sur    = models.FloatField()
-    este   = models.FloatField()
-    oeste  = models.FloatField()
-    creado = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return (
-            f"Deslizamiento: "
-            f"N={self.norte:.6f}, "
-            f"S={self.sur:.6f}, "
-            f"E={self.este:.6f}, "
-            f"O={self.oeste:.6f}"
-        )
-
+    latitud = models.FloatField()
+    longitud = models.FloatField()
+    deslizamiento_antiguo = models.BooleanField(default=False)
+    deslizamiento_nuevo = models.BooleanField(default=False)
+    fecha = models.DateTimeField(auto_now_add=True)
 
 class DeslizamientosMonitoreados(models.Model):
     nombre = models.CharField(max_length=100)

@@ -1,0 +1,5 @@
+# Comando para correr el servicio Backend
+
+`
+    daphne -b 0.0.0.0 -p 8000 deslizamientos.asgi:application
+`
