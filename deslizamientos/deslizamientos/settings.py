@@ -83,7 +83,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
         'NAME': 'satel',
-        'USER': 'root',
+        'USER': 'nodered',
         'PASSWORD': 'Indelp@2023',
         'HOST': 'mysql_satel',
         'PORT': '3306',
