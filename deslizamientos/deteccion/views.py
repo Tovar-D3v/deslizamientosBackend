@@ -30,10 +30,10 @@ class DeslizamientoViewSet(viewsets.ModelViewSet):
         return queryset.order_by('-id')
 
 class DeslizamientosMonitoreadosViewSet(viewsets.ModelViewSet):
-    queryset = DeslizamientosMonitoreados.objects.all().order_by("-id")
+    queryset = DeslizamientosMonitoreados.objects.all().order_by("nombre")
     serializer_class = DeslizamientoMonitoreadoSerializer
 
 
 class FincasCafeterasMonitoreadasViewSet(viewsets.ModelViewSet):
-    queryset = FincasCafeterasMonitoreadas.objects.all().order_by("-id")
+    queryset = FincasCafeterasMonitoreadas.objects.all().order_by("nombre_finca")
     serializer_class = FincaCafeteraMonitoreadaSerializer

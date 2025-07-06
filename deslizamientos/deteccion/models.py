@@ -16,11 +16,9 @@ class Deslizamiento(models.Model):
 class DeslizamientosMonitoreados(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField(blank=True, null=True)
-    norte  = models.FloatField()
-    sur    = models.FloatField()
-    este   = models.FloatField()
-    oeste  = models.FloatField()
-    nivel_movimiento = models.FloatField()
+    latitud = models.FloatField(null=True, blank=True)
+    longitud = models.FloatField(null=True, blank=True)
+    nivel_movimiento = models.FloatField(null=True, blank=True)
     activo = models.BooleanField(default=True)
     icono = models.CharField(max_length=100, default='signal')
 
