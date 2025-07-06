@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     "channels",
     'corsheaders',   
     "rest_framework",
+    'rest_framework_gis',
     "rest_framework_simplejwt",
     "deteccion"
 ]
@@ -79,28 +81,51 @@ WSGI_APPLICATION = 'deslizamientos.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'mysql.connector.django',
-        'NAME': 'satel',
-        'USER': 'nodered',
-        'PASSWORD': 'Indelp@2023',
-        'HOST': 'mysql_satel',
-        'PORT': '3306',
-    },
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'mysql.connector.django',
+#         'NAME': 'satel',
+#         'USER': 'nodered',
+#         'PASSWORD': 'Indelp@2023',
+#         'HOST': 'mysql_satel',
+#         'PORT': '3306',
+#     },
+# }
 
 
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'mysql.connector.django',
 #         'NAME': 'satel',
-#         'USER': 'root',
+#         'USER': 'indelpa',
 #         'PASSWORD': 'Indelp@2023',
 #         'HOST': 'localhost',
 #         'PORT': '3306',
 #     },
 # }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.contrib.gis.db.backends.postgis',
+#         'NAME': 'deslizamientos_bd',
+#         'USER': 'indelpa',
+#         'PASSWORD': 'Indelp@2023',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     },
+# }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'satel',
+        'USER': 'n8n_user',
+        'PASSWORD': 'n8n_user_pass',
+        'HOST': 'postgres',
+        'PORT': '5432',
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -150,6 +175,12 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.0.138:3000"
     
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 1000 # O el número que consideres adecuado
+}
 
 # Channels
 ASGI_APPLICATION = "deslizamientos.asgi.application"

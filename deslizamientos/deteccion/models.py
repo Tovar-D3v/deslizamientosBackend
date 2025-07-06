@@ -1,11 +1,17 @@
-from django.db import models
+from django.contrib.gis.db import models
+from django.utils import timezone
 
 class Deslizamiento(models.Model):
-    latitud = models.FloatField()
-    longitud = models.FloatField()
-    deslizamiento_antiguo = models.BooleanField(default=False)
-    deslizamiento_nuevo = models.BooleanField(default=False)
-    fecha = models.DateTimeField(auto_now_add=True)
+    # Volvemos a las columnas separadas
+    latitud = models.FloatField(null=True, blank=True)
+    longitud = models.FloatField(null=True, blank=True)
+    
+    # Mantenemos los otros campos
+    deslizamiento_prediccion = models.BooleanField(default=False, null=True, blank=True)
+    deslizamiento_real = models.BooleanField(default=False, null=True, blank=True)
+    fecha_deslizamiento_prediccion = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    fecha_deslizamiento_real = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
 
 class DeslizamientosMonitoreados(models.Model):
     nombre = models.CharField(max_length=100)
