@@ -12,7 +12,9 @@ cryptography==45.0.4
 daphne==4.2.0
 Django==4.2.23
 django-cors-headers==4.7.0
+django-filter==25.1
 djangorestframework==3.16.0
+djangorestframework-gis==1.2.0
 djangorestframework_simplejwt==5.5.0
 h11==0.16.0
 hyperlink==21.0.0
@@ -21,6 +23,7 @@ incremental==24.7.2
 msgpack==1.1.1
 mysql-connector-python==9.3.0
 mysqlclient==2.2.7
+psycopg2-binary==2.9.10
 pyasn1==0.6.1
 pyasn1_modules==0.4.2
 pycparser==2.22
