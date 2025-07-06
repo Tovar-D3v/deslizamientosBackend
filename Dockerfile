@@ -8,13 +8,17 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 # 3. Directorio de trabajo
 WORKDIR /app
 
-# 4. Instala dependencias del sistema para compilar mysqlclient
+# 4. Instala dependencias del sistema para compilar mysqlclient Y AHORA GDAL/GEOS
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
       build-essential \
       pkg-config \
       default-libmysqlclient-dev \
       libssl-dev \
+      # --- ¡AÑADE ESTAS LÍNEAS PARA GDAL Y GEOS! ---
+      libgdal-dev \
+      libgeos-dev \
+      # ---------------------------------------------
  && rm -rf /var/lib/apt/lists/*
 
 # 5. Copia e instala dependencias Python
