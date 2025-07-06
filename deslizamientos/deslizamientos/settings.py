@@ -122,7 +122,7 @@ DATABASES = {
         'NAME': 'satel',
         'USER': 'n8n_user',
         'PASSWORD': 'n8n_user_pass',
-        'HOST': 'postgres',
+        'HOST': '192.168.0.138',
         'PORT': '5432',
     },
 }
