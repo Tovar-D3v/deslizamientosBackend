@@ -116,6 +116,7 @@ WSGI_APPLICATION = 'deslizamientos.wsgi.application'
 #     },
 # }
 
+# Servidor
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
@@ -176,6 +177,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.0.138:3000",
     "http://192.168.0.138:80",
     "http://192.168.0.138:1880",
+    "https://dory-concise-likely.ngrok-free.app",
 ]
 
 
