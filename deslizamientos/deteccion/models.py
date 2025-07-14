@@ -22,6 +22,7 @@ class DeslizamientosMonitoreados(models.Model):
     activo = models.BooleanField(default=True)
     icono = models.CharField(max_length=100, default='signal')
 
+
 class FincasCafeterasMonitoreadas(models.Model):
     codigo_municipio = models.CharField(max_length=10, null=True, blank=True)
     municipio = models.CharField(max_length=100, null=True, blank=True)
@@ -35,3 +36,21 @@ class FincasCafeterasMonitoreadas(models.Model):
     area_cafe = models.FloatField(null=True, blank=True)
     luminosidad = models.CharField(max_length=50, null=True, blank=True)
 
+
+class DeslizamientosReportados(models.Model):
+    fecha = models.DateTimeField(default=timezone.now)
+    latitud = models.FloatField(null=True, blank=True)
+    longitud = models.FloatField(null=True, blank=True)
+    descripcion = models.TextField(blank=True, null=True)
+    estado = models.CharField(max_length=50, default='Pendiente')
+    
+    nombre_reportero = models.CharField(max_length=100, blank=True, null=True, verbose_name="Nombre del Reportero (Opcional)")
+    contacto_reportero = models.CharField(max_length=100, blank=True, null=True, verbose_name="Contacto (Email/Teléfono - Opcional)")
+
+        # Fecha aproximada del evento (si es diferente a la fecha de reporte)
+    fecha_evento_aproximada = models.DateField(blank=True, null=True, verbose_name="Fecha Aproximada del Evento")
+    hora_evento_aproximada = models.TimeField(blank=True, null=True, verbose_name="Hora Aproximada del Evento")
+
+    
+    def __str__(self):
+        return f"Deslizamiento Reportado - {self.fecha} - Estado: {self.estado}"

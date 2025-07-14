@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Deslizamiento, DeslizamientosMonitoreados, FincasCafeterasMonitoreadas
-from .serializers import DeslizamientoSerializer, DeslizamientoMonitoreadoSerializer, FincaCafeteraMonitoreadaSerializer
+from .models import Deslizamiento, DeslizamientosMonitoreados, FincasCafeterasMonitoreadas, DeslizamientosReportados
+from .serializers import DeslizamientoSerializer, DeslizamientoMonitoreadoSerializer, FincaCafeteraMonitoreadaSerializer, DeslizamientosReportadosSerializer
 from django.contrib.gis.geos import Polygon
 
 class DeslizamientoViewSet(viewsets.ModelViewSet):
@@ -37,3 +37,8 @@ class DeslizamientosMonitoreadosViewSet(viewsets.ModelViewSet):
 class FincasCafeterasMonitoreadasViewSet(viewsets.ModelViewSet):
     queryset = FincasCafeterasMonitoreadas.objects.all().order_by("nombre_finca")
     serializer_class = FincaCafeteraMonitoreadaSerializer
+
+
+class DeslizamientosReportadosViewSet(viewsets.ModelViewSet):
+    queryset = DeslizamientosReportados.objects.all().order_by("-id")
+    serializer_class = DeslizamientosReportadosSerializer

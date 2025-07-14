@@ -81,29 +81,6 @@ WSGI_APPLICATION = 'deslizamientos.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'mysql.connector.django',
-#         'NAME': 'satel',
-#         'USER': 'nodered',
-#         'PASSWORD': 'Indelp@2023',
-#         'HOST': 'mysql_satel',
-#         'PORT': '3306',
-#     },
-# }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'mysql.connector.django',
-#         'NAME': 'satel',
-#         'USER': 'indelpa',
-#         'PASSWORD': 'Indelp@2023',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#     },
-# }
-
 
 # DATABASES = {
 #     'default': {
@@ -169,21 +146,24 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3001",
-    "http://localhost:1880",
-    "http://192.168.3.76:3001",
-    "http://192.168.0.138:3001",
-    "http://192.168.0.138:3000",
-    "http://192.168.0.138:80",
-    "http://192.168.0.138:1880",
-    "https://dory-concise-likely.ngrok-free.app",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3001",
+#     "http://localhost:1880",
+#     "http://192.168.3.76:3001",
+#     "http://192.168.0.138:3001",
+#     "http://192.168.0.138:3000",
+#     "http://192.168.0.138:80",
+#     "http://192.168.0.138:1880",
+#     "https://dory-concise-likely.ngrok-free.app",
+# ]
+
+# Añadir esta línea para permitir todos los orígenes
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 1000 # O el número que consideres adecuado
+    'PAGE_SIZE': 1000
 }
 
 # Channels
